@@ -9,6 +9,7 @@ var app            = express();
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded( {extended: true} ));
+app.use(bodyParser.json());
 app.use(methodOverride());
 
 // # 3
@@ -21,8 +22,8 @@ mongoose.connect('mongodb://localhost/guest', function(err, res) {
 });
 
 // # 1
-app.listen(8080);
-console.log('나 8080 포트에서 돌아간다!');
+app.listen(8000);
+console.log('나 8000 포트에서 돌아간다!');
 
 app.get('/', function(req, res){
 	res.send("안녕 세상!");
