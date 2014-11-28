@@ -3,9 +3,11 @@ var express        = require('express');
 var morgan         = require('morgan');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var mongoose        = require("mongoose");
+var mongoose       = require("mongoose");
+var favicon        = require('serve-favicon');
 var app            = express();
 
+app.use(favicon(__dirname + '/public/favicon.ico')); 
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded( {extended: true} ));
